@@ -225,7 +225,7 @@ window.ALUMNOS = [
 "#cad7d6",
 "#a6a795"
 ],
-"approx": false
+"approx": true
 },
 {
 "id": "dayra-lorely-limachi-flores",
