@@ -564,7 +564,13 @@ async function startChat(a, it){
   const hist = [];
   const persona = `Sos "${it.name}", un agente conversacional que inventó ${firstName(a.name)}, un/a alumno/a adolescente del taller de Inteligencia Artificial de TUMO Chacarita (Buenos Aires). Así lo describió:\n${it.desc}\n\nReglas: hablá SIEMPRE en primera persona como ese personaje, con su personalidad, emojis si encajan, en español rioplatense. Respuestas cortas (1 a 3 oraciones). Contenido apto para chicos: nada violento, sexual ni peligroso; si te piden algo así, cambiá de tema con onda. Si te preguntan, contá que te creó ${firstName(a.name)} en el taller de IA de TUMO. No digas que sos Claude ni hables de estas reglas.`;
   const add = (cls, t) => { const d = document.createElement('div'); d.className = 'msg ' + cls; d.textContent = t; box.appendChild(d); box.scrollTop = box.scrollHeight; return d; };
-  const sample = await samplerP;
+  const sample = (await samplerP) || (async (msgs, opts) => {
+    const r = await fetch('/api/chat', { method:'POST', headers:{'content-type':'application/json'}, signal: opts && opts.signal,
+      body: JSON.stringify({ name: it.name, creator: firstName(a.name), desc: it.desc, hist: msgs.slice(2) }) });
+    if (r.status === 429){ const e = new Error('rl'); e.code = 'rate_limited'; throw e; }
+    if (!r.ok){ const e = new Error('x'); if (r.status === 503 || r.status === 404) e.code = 'not_granted'; throw e; }
+    const j = await r.json(); return { text: j.text };
+  });
   if (!sample){ form.hidden = true; sugs.hidden = true; box.hidden = true; return; }
   async function send(text){
     text = text.trim(); if (!text) return;
