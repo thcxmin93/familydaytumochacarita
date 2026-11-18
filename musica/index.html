@@ -379,7 +379,7 @@ function wave(seed, n = 34){
   for (let i = 0; i < n; i++){ x = (x*9301 + 49297) % 233280; const h = 18 + (x/233280)*64; out += `<path d="M${i*6+3} ${50-h/2}v${h}" />`; }
   return `<svg class="wave" viewBox="0 0 ${n*6} 100" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round">${out}</svg>`;
 }
-const genCover = a => { const n = firstName(a.name).toLowerCase(); return `<div class="gen">${wave(hash(a.id))}<b style="font-size:${Math.min(22, 125 / Math.max(n.length, 1)).toFixed(1)}cqw">${esc(n)}</b></div>`; };
+const genCover = a => { const n = firstName(a.name); return `<div class="gen">${wave(hash(a.id))}<b style="font-size:${Math.min(22, 125 / Math.max(n.length, 1)).toFixed(1)}cqw">${esc(n)}</b></div>`; };
 const coverHTML = (a, cls='') => a.cover ? `<img ${cls} loading="lazy" src="${a.cover}" alt="Trabajo de ${esc(a.name)}">` : genCover(a);
 const ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg>';
 const ICON_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
