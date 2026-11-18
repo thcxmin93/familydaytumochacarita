@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Taller de Generación de IA · Octubre — TUMO Chacarita</title>
+<title>Taller de IA generativa · Octubre — TUMO Chacarita</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Comfortaa:wght@700&family=Albert+Sans:wght@400;500;600;700&family=Silkscreen&family=Gochi+Hand&display=swap">
@@ -330,7 +330,7 @@ footer b{font-family:var(--f-display);font-weight:800;color:var(--text);font-siz
   <a class="brand" href="../index.html" >
     <img class="brand-logo" src="logo.png" alt="TUMO Buenos Aires">
     <span class="brand-sep"></span>
-    <span><b>Chacarita</b><small>Taller de Generación de IA</small></span>
+    <span><b>Chacarita</b><small>Taller de IA generativa</small></span>
   </a>
   <a class="tb-home" href="../index.html" >← Todas las disciplinas</a>
 </header>
@@ -338,7 +338,7 @@ footer b{font-family:var(--f-display);font-weight:800;color:var(--text);font-siz
 <section class="hero">
   <div>
     <span class="px">TUMO Chacarita · Workshop · Octubre 2026</span>
-    <h1>Taller de <em>Generación de IA</em></h1>
+    <h1>Taller de <em>IA</em> generativa</h1>
     <span class="where">Octubre — TUMO Chacarita ✦</span>
     <p class="bio" style="margin-bottom:28px">Cuatro semanas creando con inteligencia artificial: cada estudiante diseñó su propio agente, con personalidad, imagen y forma de hablar. Acá están todos — tocá un nombre para conocer a su agente.</p>
     <a class="btn" href="#trabajos">Ver los trabajos ↓</a>
@@ -370,7 +370,7 @@ footer b{font-family:var(--f-display);font-weight:800;color:var(--text);font-siz
 <p class="abc-note" id="abcNote"><b>A–Z</b><span>Ordenados alfabéticamente por <span id="abcBy">nombre</span>: las letras grandes marcan dónde empieza cada inicial.</span></p>
 <main id="list"></main>
 
-<footer><span style="display:flex;align-items:center;gap:14px"><img src="logo.png" alt="TUMO Buenos Aires" style="height:28px;filter:brightness(0) saturate(100%) invert(18%) sepia(30%) saturate(900%) hue-rotate(95deg)"><b>Taller de Generación de IA</b></span><span>TUMO Chacarita · Octubre 2026</span></footer>
+<footer><span style="display:flex;align-items:center;gap:14px"><img src="logo.png" alt="TUMO Buenos Aires" style="height:28px;filter:brightness(0) saturate(100%) invert(18%) sepia(30%) saturate(900%) hue-rotate(95deg)"><b>Taller de IA generativa</b></span><span>TUMO Chacarita · Octubre 2026</span></footer>
 
 <section class="detail" id="detail" role="dialog" aria-modal="true">
   <div class="viewer" id="viewer">
@@ -463,7 +463,7 @@ let rotTimer = setInterval(tick, 4000);
 printsEl.addEventListener('mouseenter', () => clearInterval(rotTimer));
 printsEl.addEventListener('mouseleave', () => { rotTimer = setInterval(tick, 4000); });
 printsEl.addEventListener('click', e => { const f = e.target.closest('.print'); if (f) location.hash = f.dataset.id; });
-const words = ["Taller de Generación de IA", "TUMO Chacarita", "Agentes", "Personalidad", "Prompts", "Ideas", "Octubre 2026"];
+const words = ["Taller de IA generativa", "TUMO Chacarita", "Agentes", "Personalidad", "Prompts", "Ideas", "Octubre 2026"];
 const names = [...words, ...words].map(w => `<span>${w}</span><i>✦</i>`).join('');
 document.getElementById('mq').innerHTML = names + names;
 
