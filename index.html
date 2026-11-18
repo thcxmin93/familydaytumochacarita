@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio · Octubre — TUMO Chacarita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Albert+Sans:wght@400;500;600;700&family=Silkscreen&family=Gochi+Hand&display=swap">
+<style>
+:root{
+  --bg:#f4f8f1;--ink:#11251a;--muted:#56695b;--green:#23964f;--green-2:#136238;
+  --f-display:"Bricolage Grotesque",system-ui,sans-serif;--f-body:"Albert Sans",system-ui,sans-serif;
+  --f-pixel:"Silkscreen","Courier New",monospace;--f-hand:"Gochi Hand","Comic Sans MS",cursive;
+  --gut:max(16px,4vw);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 1px 1px,color-mix(in srgb,var(--green) 9%,transparent) 1px,transparent 0);background-size:26px 26px;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--green);outline-offset:4px;border-radius:8px}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px var(--gut);background:#123d24;color:#fff}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:34px;width:auto}
+.brand i{width:1px;height:34px;background:rgba(255,255,255,.35)}
+.brand b{display:block;font-family:var(--f-display);font-weight:800;font-size:19px;line-height:1.1}
+.brand small{display:block;font-size:12px;color:rgba(255,255,255,.75)}
+.tb-right{font-size:13px;color:rgba(255,255,255,.75)}
+
+.hero{padding:clamp(40px,6vw,84px) var(--gut) 28px;max-width:1400px;margin:0 auto;width:100%}
+.px{font-family:var(--f-pixel);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
+.hero h1{font-family:var(--f-display);font-weight:800;font-size:clamp(46px,7vw,112px);line-height:.92;letter-spacing:-.03em;margin:14px 0 4px;text-wrap:balance}
+.hero .where{font-family:var(--f-hand);font-size:clamp(24px,2.4vw,36px);color:var(--green-2);transform:rotate(-2deg);display:inline-block;margin:4px 0 14px}
+.hero p{max-width:620px;color:var(--muted);font-size:18px}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,26px);padding:18px var(--gut) 70px;max-width:1400px;margin:0 auto;width:100%}
+.disc{--c:#333;position:relative;display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:#fff;
+  box-shadow:0 18px 36px -22px rgba(17,60,35,.45);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.disc:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 28px 46px -22px color-mix(in srgb,var(--c) 70%,#000)}
+.disc .art{position:relative;aspect-ratio:4/3;background:var(--c);display:grid;place-items:center;overflow:hidden}
+.disc .art::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.22) 1.2px,transparent 0);background-size:18px 18px}
+.disc .art::after{content:"";position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.14);right:-18%;bottom:-30%}
+.disc svg{position:relative;z-index:1;width:46%;height:auto;color:#fff;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.disc:hover svg{transform:scale(1.08) rotate(-4deg)}
+.disc .txt{padding:16px 18px 18px;display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.disc h2{font-family:var(--f-display);font-weight:800;font-size:clamp(20px,1.7vw,26px);line-height:1.05;letter-spacing:-.01em}
+.disc small{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+.disc .go{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;font-size:18px;transition:transform .25s}
+.disc:hover .go{transform:translateX(4px)}
+.disc.soon .go{background:#c9d3c5}
+.disc .tag{position:absolute;z-index:2;left:12px;top:12px;font-family:var(--f-pixel);font-size:10px;padding:4px 8px;border-radius:3px;background:#fff;color:var(--ink);transform:rotate(-3deg);box-shadow:2px 2px 0 rgba(0,0,0,.25)}
+.disc.ai .art{background:linear-gradient(135deg,#3CF7F5,#0478FF 50%,#FF8FFF)}
+
+footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:28px var(--gut);border-top:1px solid #d2dfcc;color:var(--muted);font-size:14px}
+footer b{font-family:var(--f-display);font-weight:800;color:var(--ink);font-size:20px}
+footer img{height:28px;filter:brightness(0) saturate(100%) invert(18%) sepia(30%) saturate(900%) hue-rotate(95deg)}
+
+@media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){
+  .topbar{padding:12px 16px}.brand img{height:26px}.brand i{height:26px}.brand b{font-size:16px}.tb-right{display:none}
+  .hero{padding:32px 16px 16px}.hero p{font-size:16px}
+  .grid{gap:12px;padding:12px 16px 50px}
+  .disc{border-radius:16px}.disc .txt{padding:10px 12px 12px}.disc h2{font-size:17px}.disc small{display:none}.disc .go{width:30px;height:30px;font-size:15px}
+  footer{flex-direction:column;align-items:flex-start;padding:24px 16px 36px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* fijos y encuadre */
+.topbar{height:70px;padding-top:0!important;padding-bottom:0!important}
+.bar{top:70px}
+@media (max-width:700px){
+  .topbar{height:56px}
+  .bar{top:56px}
+  .topbar .brand>span:last-child,.topbar .brand-sep,.topbar .brand>i{display:none}
+  .topbar .brand-logo,.topbar .brand img{height:26px}
+}
+
+.topbar{position:sticky;top:0;z-index:15;box-shadow:0 6px 18px -12px rgba(0,0,0,.45)}
+.ph{background:var(--panel)}
+.ph img{object-fit:contain!important}
+.card:hover .ph img{transform:none}
+.print .pimg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><img src="logo.png" alt="TUMO Buenos Aires"><i></i><span><b>Chacarita</b><small>Portfolio</small></span></a>
+  <span class="tb-right">Talleres · Octubre 2026</span>
+</header>
+
+<section class="hero">
+  <span class="px">TUMO Chacarita · Workshops · Octubre 2026</span>
+  <h1>Portfolio</h1>
+  <span class="where">Octubre — TUMO Chacarita ✦</span>
+  <p>Ingresá en cada disciplina para ver los proyectos finales de los estudiantes.</p>
+</section>
+
+<main class="grid" id="grid"></main>
+
+<footer><span style="display:flex;align-items:center;gap:14px"><img src="logo.png" alt="TUMO Buenos Aires"><b>Portfolio</b></span><span>TUMO Chacarita · Octubre 2026</span></footer>
+
+<script>
+const I={
+ modelado:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"><path d="M32 6 54 18v28L32 58 10 46V18z"/><path d="M10 18l22 12 22-12M32 30v28"/></svg>',
+ dibujo:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"><path d="M44 8l12 12L22 54H10V42z"/><path d="M36 16l12 12M10 42l12 12"/><path d="M40 56h14" opacity=".7"/></svg>',
+ cine:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"><rect x="8" y="26" width="48" height="30" rx="3"/><path d="M8 26l-1-10 46-8 2 10z"/><path d="M18 14l6 9M30 12l6 9M42 10l6 9"/><path d="M28 34v14l12-7z" fill="currentColor"/></svg>',
+ videojuegos:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"><path d="M18 18h28c8 0 12 6 13 14l2 12c1 6-6 10-10 5l-6-7H19l-6 7c-4 5-11 1-10-5l2-12c1-8 5-14 13-14z"/><path d="M20 28v10M15 33h10"/><circle cx="43" cy="29" r="2" fill="currentColor"/><circle cx="49" cy="35" r="2" fill="currentColor"/></svg>',
+ ia:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"><path d="M26 8c2 12 6 16 18 18-12 2-16 6-18 18-2-12-6-16-18-18 12-2 16-6 18-18z"/><path d="M48 36c1 6 3 8 9 9-6 1-8 3-9 9-1-6-3-8-9-9 6-1 8-3 9-9z"/><path d="M14 46c.6 3 1.6 4 4.6 4.6-3 .6-4 1.6-4.6 4.6-.6-3-1.6-4-4.6-4.6 3-.6 4-1.6 4.6-4.6z"/></svg>',
+ musica:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"><path d="M24 46V12l30-6v34"/><path d="M24 22l30-6"/><ellipse cx="17" cy="46" rx="8" ry="6"/><ellipse cx="47" cy="40" rx="8" ry="6"/></svg>',
+ fotografia:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"><path d="M8 22c0-3 2-5 5-5h8l4-6h14l4 6h8c3 0 5 2 5 5v26c0 3-2 5-5 5H13c-3 0-5-2-5-5z"/><circle cx="32" cy="34" r="10"/><circle cx="49" cy="25" r="1.5" fill="currentColor"/></svg>',
+ programacion:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="10" width="52" height="44" rx="5"/><path d="M6 20h52"/><path d="M24 30l-7 7 7 7M40 30l7 7-7 7M35 28l-6 18"/></svg>'
+};
+const D=[
+ {k:'modelado',n:'Modelado 3D',s:'Casas modeladas en Maya',c:'#747b35',href:'modelado.html'},
+ {k:'dibujo',n:'Dibujo',s:'Personajes e ilustración',c:'#9f306e',href:'dibujo/index.html'},
+ {k:'cine',n:'Cine',s:'Cortos y escenas',c:'#f1592b',href:'cine/index.html'},
+ {k:'videojuegos',n:'Videojuegos',s:'Juegos hechos en Unity',c:'#6fa52e',href:'videojuegos/index.html'},
+ {k:'ia',n:'Generación de IA',s:'Agentes creados con IA',c:'#0478FF',cls:'ai',href:'ia/index.html'},
+ {k:'musica',n:'Música',s:'Temas y producciones',c:'#722772',href:'musica/index.html'},
+ {k:'fotografia',n:'Fotografía',s:'Series de fotos',c:'#1baebe',href:'fotografia/index.html'},
+ {k:'programacion',n:'Programación',s:'Animaciones con código',c:'#8a8c55',href:'programacion/index.html'}
+];
+document.getElementById('grid').innerHTML=D.map(d=>{
+  const soon=!d.href;
+  return `<a class="disc ${d.cls||''} ${soon?'soon':''}" style="--c:${d.c}" href="${d.href||'#'}" ${/^http/.test(d.href||'')?'target="_top"':''} ${soon?'aria-disabled="true" onclick="return false"':''}>
+    <div class="art">${soon?'<span class="tag">próximamente</span>':''}${I[d.k]}</div>
+    <div class="txt"><div><h2>${d.n}</h2><small>${d.s}</small></div><span class="go">→</span></div></a>`;
+}).join('');
+
+// el panel es el punto de partida: el botón "atrás" no sale de la muestra
+try{
+  history.pushState({panel:1},'',location.href);
+  window.addEventListener('popstate',()=>history.pushState({panel:1},'',location.href));
+}catch(e){}
+</script>
+</body>
+</html>
