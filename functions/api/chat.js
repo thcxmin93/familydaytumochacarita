@@ -17,6 +17,6 @@ export async function onRequestPost({ request, env }) {
     const r = await env.AI.run(MODEL, { messages: [{ role: 'system', content: system }, ...hist], max_tokens: 220, temperature: 0.8 });
     return Response.json({ text: (r && r.response || '').trim() || '…' });
   } catch (e) {
-    return Response.json({ error: 'ia' }, { status: 429 });
+    return Response.json({ error: 'ia', detail: String(e && e.message || e).slice(0, 300) }, { status: 429 });
   }
 }
