@@ -480,7 +480,7 @@ let rotTimer = setInterval(tick, 4000);
 printsEl.addEventListener('mouseenter', () => clearInterval(rotTimer));
 printsEl.addEventListener('mouseleave', () => { rotTimer = setInterval(tick, 4000); });
 printsEl.addEventListener('click', e => { const f = e.target.closest('.print'); if (f) location.hash = f.dataset.id; });
-const words = ["Taller de Programación", "TUMO Chacarita", "Código", "Animación", "p5.js", "Interacción", "Octubre 2026"];
+const words = ["Taller de Programación", "TUMO Chacarita", "Código", "Animación", "turtle.js", "Interacción", "Octubre 2026"];
 const names = [...words, ...words].map(w => `<span>${w}</span><i>✦</i>`).join('');
 document.getElementById('mq').innerHTML = names + names;
 
