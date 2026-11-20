@@ -252,6 +252,14 @@ footer b{font-family:var(--f-display);font-weight:800;color:var(--text);font-siz
 .items button span.k{flex:none;font-family:var(--f-pixel);font-size:9px;padding:3px 6px;border-radius:3px;background:var(--lilac);color:#fff}
 .dl{align-self:flex-start;font-size:14px;color:var(--lilac-2);font-weight:600}
 .codebox{width:100%;max-height:100%;display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:#1b1d22;box-shadow:0 24px 50px -24px rgba(0,0,0,.6)}
+.sidecode{flex:1;min-height:260px;display:flex;flex-direction:column;gap:10px}
+.sidecode .px{font-size:10px;opacity:.75}
+.sidecode .ctabs{display:flex;flex-wrap:wrap;gap:6px}
+.sidecode .ctabs button{font-family:var(--f-pixel);font-size:9px;padding:5px 8px;border-radius:4px;border:1px solid var(--line);background:#fff}
+.sidecode .ctabs button[aria-current="true"]{background:#1b1d22;color:#fff;border-color:#1b1d22}
+.sidecode .codebox{flex:1;min-height:0;max-height:none}
+.sidecode .codebox pre{flex:1;font-size:12px;line-height:1.5}
+@media (max-width:980px){.sidecode .codebox pre{max-height:70vh}}
 .codehead{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#2a2d34;color:#c9ccd3;font-family:var(--f-pixel);font-size:10px}
 .codehead i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.codehead i:nth-child(2){background:#febc2e}.codehead i:nth-child(3){background:#28c840}
 .codehead span{margin-left:8px}
@@ -612,6 +620,12 @@ async function openDetail(id){
       ? `<div class="rail" id="rail">${a.items.map(s=>`<button><img loading="lazy" src="${s.thumb || s.src}" alt=""></button>`).join('')}</div>`
       : `<div class="items">${a.items.map(s=>`<button><span class="k">${KIND.itemTag(s)}</span>${esc((s.t || '').replace(/[_]+/g,' '))}</button>`).join('')}</div>`;
   }
+  if (!a.codes){ const cs = a.items.filter(x => x.k === 'code'), ms = a.items.filter(x => x.k !== 'code'); a.codes = ms.length ? cs : []; if (ms.length) a.items = ms; }
+  if (a.codes.length){
+    side = (a.items.length > 1 ? `<div class="items">${a.items.map(s=>`<button><span class="k">${KIND.itemTag(s)}</span>${esc((s.t || '').replace(/[_]+/g,' '))}</button>`).join('')}</div>` : '')
+      + `<div class="sidecode"><span class="px">el código que escribió</span>${a.codes.length > 1 ? `<div class="ctabs">${a.codes.map((c,j)=>`<button data-c="${j}" aria-current="${j===0}">${esc(c.t)}</button>`).join('')}</div>` : ''}
+      <div class="codebox"><div class="codehead"><i></i><i></i><i></i><span id="cName">${esc(a.codes[0].t)}</span></div><pre><code id="cCode">${esc(a.codes[0].code)}</code></pre></div></div>`;
+  }
   const ag = a.items[0] && a.items[0].k === 'agent' ? a.items[0] : null;
   const agentInfo = ag ? `<div class="agent-info">${ag.img ? `<img src="${ag.img}" alt="Imagen del agente ${esc(ag.name)}">` : ''}
     <span class="px">su agente</span><h3>${esc(ag.name || 'Agente')}</h3>
@@ -628,6 +642,7 @@ function closeDetail(clearHash = true){
 }
 document.getElementById('dItems').addEventListener('click', e => {
   const ai = e.target.closest('.agent-info img'); if (ai){ document.getElementById('lbImg').src = ai.src; document.getElementById('lb').classList.add('open'); return; }
+  const cb = e.target.closest('.ctabs button'); if (cb && current){ const c = current.codes[+cb.dataset.c]; document.getElementById('cName').textContent = c.t; document.getElementById('cCode').textContent = c.code; cb.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-current', x === cb)); return; }
   const b = e.target.closest('#rail button, .items button'); if (b) showItem([...b.parentElement.children].indexOf(b));
 });
 mview.addEventListener('click', e => { if (e.target.tagName === 'IMG' && !e.target.closest('.gen')){ document.getElementById('lbImg').src = e.target.src; document.getElementById('lb').classList.add('open'); } });
