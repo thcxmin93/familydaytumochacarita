@@ -252,12 +252,76 @@ footer b{font-family:var(--f-display);font-weight:800;color:var(--text);font-siz
 .items button span.k{flex:none;font-family:var(--f-pixel);font-size:9px;padding:3px 6px;border-radius:3px;background:var(--lilac);color:#fff}
 .dl{align-self:flex-start;font-size:14px;color:var(--lilac-2);font-weight:600}
 .codebox{width:100%;max-height:100%;display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:#1b1d22;box-shadow:0 24px 50px -24px rgba(0,0,0,.6)}
+.sidecode{flex:1;min-height:260px;display:flex;flex-direction:column;gap:10px}
+.sidecode .px{font-size:10px;opacity:.75}
+.sidecode .ctabs{display:flex;flex-wrap:wrap;gap:6px}
+.sidecode .ctabs button{font-family:var(--f-pixel);font-size:9px;padding:5px 8px;border-radius:4px;border:1px solid var(--line);background:#fff}
+.sidecode .ctabs button[aria-current="true"]{background:#1b1d22;color:#fff;border-color:#1b1d22}
+.sidecode .codebox{flex:1;min-height:0;max-height:none}
+.sidecode .codebox pre{flex:1;font-size:12px;line-height:1.5}
+@media (max-width:980px){.sidecode .codebox pre{max-height:70vh}}
 .codehead{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#2a2d34;color:#c9ccd3;font-family:var(--f-pixel);font-size:10px}
 .codehead i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.codehead i:nth-child(2){background:#febc2e}.codehead i:nth-child(3){background:#28c840}
 .codehead span{margin-left:8px}
 .codebox pre{margin:0;padding:16px 18px;overflow:auto;color:#e6e6e6;font:13px/1.55 ui-monospace,Menlo,Consolas,monospace;tab-size:2;white-space:pre}
 @media (max-width:700px){ .tb-home{font-size:12px;padding:6px 10px} .aud{gap:12px} .tname{font-size:18px} .player{padding:8px 12px} .player button.pp{width:40px;height:40px} }
 
+/* agentes IA */
+.lightbox img{min-height:min(70vh,640px);object-fit:contain}
+.agent-info{display:flex;flex-direction:column;gap:10px}
+.agent-info img{width:150px;height:150px;object-fit:cover;border-radius:50%;box-shadow:0 0 0 5px #fff,0 0 0 9px var(--lilac);cursor:zoom-in;margin:6px 0 4px 9px}
+.agent-info h3{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,2.4vw,38px);line-height:1}
+.agent-info .desc{font-size:16px;line-height:1.55;color:var(--ink);background:color-mix(in srgb,var(--lilac) 6%,#fff);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+[hidden]{display:none!important}
+@media (max-width:980px){.detail:has(.agent){grid-template-rows:82vh auto}}
+.agent{width:min(620px,100%);height:min(100%,760px);background:#fff;border-radius:22px;padding:18px;box-shadow:0 30px 60px -28px rgba(0,0,0,.45);display:flex;flex-direction:column;gap:10px}
+.agent-head{display:flex;gap:14px;align-items:center;text-align:left}
+.agent-pic{border-radius:50%;overflow:hidden;position:relative;flex:none;box-shadow:0 0 0 4px #fff,0 0 0 7px var(--lilac)}
+.agent-head .agent-pic{width:84px;height:84px;cursor:zoom-in}
+@media (max-width:700px){.agent{padding:12px;border-radius:16px}.agent-head .agent-pic{width:56px;height:56px}.msg{font-size:14px}}
+.agent-head h3{margin-top:2px}
+.agent details{font-size:13px;color:var(--muted)} .agent details summary{cursor:pointer;color:var(--lilac-2);font-weight:600}
+.agent details p{max-height:120px;overflow:auto;margin-top:4px}
+.chat{flex:1;min-height:120px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:10px;background:color-mix(in srgb,var(--lilac) 6%,#fff);border-radius:14px}
+.msg{max-width:85%;padding:9px 13px;border-radius:16px;font-size:15px;line-height:1.4;white-space:pre-wrap;text-align:left}
+.msg.bot{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
+.msg.me{align-self:flex-end;background:var(--lilac);color:#fff;border-bottom-right-radius:4px}
+.msg.typing{opacity:.6}
+.sugs{display:flex;gap:6px;flex-wrap:wrap}.sugs button{padding:6px 12px;border-radius:999px;border:1.5px solid var(--lilac);color:var(--lilac-2);font-size:13px;background:#fff}
+.chatbar{display:flex;gap:8px}.chatbar input{flex:1;padding:12px 16px;border-radius:999px;border:1.5px solid var(--line);font:inherit;font-size:15px;outline:none}
+.chatbar input:focus{border-color:var(--lilac)}.chatbar button{width:46px;height:46px;border-radius:50%;background:var(--lilac);color:#fff;font-size:18px}
+
+.agent-pic img{width:100%;height:100%;object-fit:cover}
+.agent h3{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,2.4vw,36px);line-height:1;margin-top:6px}
+.agent-soon{font-family:var(--f-hand);font-size:20px;color:var(--lilac-2);background:color-mix(in srgb,var(--lilac) 10%,#fff);padding:8px 16px;border-radius:999px}
+/* recopilación */
+.hero-reel{align-self:center;position:relative}
+.hero-reel figure{margin:0;background:var(--paper);padding:10px 10px 40px;border:1px solid var(--line);border-radius:3px;box-shadow:var(--shadow);transform:rotate(1.5deg);position:relative}
+.hero-reel figure::before{content:"";position:absolute;top:-12px;left:50%;width:96px;height:24px;margin-left:-48px;background:var(--tape);transform:rotate(-3deg);z-index:1}
+.hero-reel video{display:block;width:100%;aspect-ratio:16/9;background:#000;border-radius:2px}
+.hero-reel figcaption{position:absolute;left:14px;bottom:7px;font-family:var(--f-hand);font-size:22px;color:var(--ink)}
+@media (max-width:640px){.hero-reel figure{transform:none;padding:6px 6px 32px}.hero-reel figcaption{font-size:18px}}
+.reel{max-width:1100px;margin:34px auto 0;padding:0 var(--gut)}
+.reel-in{display:flex;flex-direction:column;gap:10px}
+.reel video{width:100%;aspect-ratio:16/9;border-radius:18px;background:#000;box-shadow:var(--shadow)}
+/* itch.io */
+.gen .gicon{position:absolute;left:50%;bottom:10%;transform:translateX(-50%);width:38%;opacity:.9;color:#fff}
+.gen .gicon svg{width:100%;height:auto}
+.aud .playbtn{align-self:center}
+.playbtn{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;background:var(--lilac);color:#fff;font-weight:800;font-size:16px;text-decoration:none;box-shadow:0 10px 24px -12px var(--lilac)}
+.playbtn:hover{background:var(--lilac-2)}
+.playbtn.big{font-size:20px;padding:16px 30px}
+.playnote{color:var(--muted);font-size:13px;margin-top:-10px}
+.itch{max-width:1100px;margin:34px auto 6px;padding:22px 26px;border-radius:18px;background:#fff;border:2px dashed var(--lilac);display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:var(--shadow)}
+.itch h3{font-family:var(--f-display);font-weight:800;font-size:clamp(22px,2vw,30px);line-height:1.1}
+.itch p{color:var(--muted);margin-top:6px;max-width:640px}
+.itch .links{display:flex;gap:10px;flex-wrap:wrap}
+.itch a{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;background:var(--lilac);color:#fff;font-weight:700;text-decoration:none}
+.itch a:hover{background:var(--lilac-2)}
+.itch .links.small{width:100%}
+.itch .links.small a{padding:8px 14px;font-size:13px;background:#fff;color:var(--lilac-2);border:1.5px solid var(--lilac)}
+.itch .links.small a:hover{background:var(--lilac);color:#fff}
+@media (max-width:700px){.itch{margin:22px 16px 4px;padding:18px}}
 /* fijos y encuadre */
 .topbar{height:70px;padding-top:0!important;padding-bottom:0!important}
 .bar{top:70px}
@@ -301,6 +365,7 @@ footer b{font-family:var(--f-display);font-weight:800;color:var(--text);font-siz
 </section>
 
 <div class="marquee" aria-hidden="true"><div class="mq" id="mq"></div></div>
+
 
 <div class="turnos" id="turnos" role="tablist">
   <button class="turno" data-t="mañana" role="tab" aria-selected="true">Turno mañana</button>
@@ -349,7 +414,8 @@ const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 const apellido = n => { const p = n.split(' '); return p.length >= 4 ? p.slice(-2).join(' ') : p.slice(-1)[0]; };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const firstName = n => n.split(' ')[0];
-const DATA = (window.ALUMNOS || []).filter(a => a.items && a.items.length);
+const DATA = (window.ALUMNOS || []).filter(a => (a.items && a.items.length) || a.play);
+DATA.forEach(a => { if (!a.items || !a.items.length) a.items = [{k:'playcard'}]; });
 if (window.COVERS) DATA.forEach(a => { const c = COVERS[a.id]; if (c){ a.cover = c[0]; if (c[1]) a.cover2 = c[1]; } });
 const PACKS = {};
 function loadPack(id){
@@ -379,7 +445,7 @@ function wave(seed, n = 34){
   for (let i = 0; i < n; i++){ x = (x*9301 + 49297) % 233280; const h = 18 + (x/233280)*64; out += `<path d="M${i*6+3} ${50-h/2}v${h}" />`; }
   return `<svg class="wave" viewBox="0 0 ${n*6} 100" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round">${out}</svg>`;
 }
-const genCover = a => { const n = firstName(a.name); return `<div class="gen">${wave(hash(a.id))}<b style="font-size:${Math.min(22, 125 / Math.max(n.length, 1)).toFixed(1)}cqw">${esc(n)}</b></div>`; };
+const genCover = a => { const n = firstName(a.name); return `<div class="gen">${KIND.icon ? `<span class="gicon">${KIND.icon}</span>` : wave(hash(a.id))}<b style="font-size:${Math.min(22, 125 / Math.max(n.length, 1)).toFixed(1)}cqw">${esc(n)}</b></div>`; };
 const coverHTML = (a, cls='') => a.cover ? `<img ${cls} loading="lazy" src="${a.cover}" alt="Trabajo de ${esc(a.name)}">` : genCover(a);
 const ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg>';
 const ICON_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
@@ -452,7 +518,8 @@ function render(){
     html += `<button class="card" data-id="${a.id}" style="--r:${rot(a.id)}deg;--tr:${-rot(a.id)}deg">
       <div class="ph">${coverHTML(a)}${alt}
         ${a.items.length > 1 ? `<span class="badge n">${countLabel(a.items.length)}</span>` : ''}
-        ${KIND.playBadge ? `<span class="play">${ICON_PLAY}</span>` : ''}
+        ${KIND.playBadge && a.items[0].k !== 'playcard' ? `<span class="play">${ICON_PLAY}</span>` : ''}
+        ${a.play ? '<span class="badge">🎮 jugable</span>' : ''}
       </div>
       <div class="cap"><h3>${esc(a.name)}</h3><p>${gl(a.group)}</p></div>
     </button>`;
@@ -466,7 +533,7 @@ render();
 let current = null, ii = 0, audio = null;
 const mview = document.getElementById('mview');
 const fmt = s => isFinite(s) ? `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}` : '0:00';
-function stopMedia(){ mview.querySelectorAll('video,audio').forEach(m => { m.pause(); m.removeAttribute('src'); m.load(); }); audio = null; }
+function stopMedia(){ if (typeof chatCtrl !== 'undefined' && chatCtrl) chatCtrl.abort(); mview.querySelectorAll('video,audio').forEach(m => { m.pause(); m.removeAttribute('src'); m.load(); }); audio = null; }
 function showItem(i){
   const a = current; ii = (i + a.items.length) % a.items.length; const it = a.items[ii];
   stopMedia();
@@ -474,6 +541,18 @@ function showItem(i){
     mview.innerHTML = `<div class="vbg" style="background-image:url('${it.src}')"></div><img src="${it.src}" alt="Trabajo de ${esc(a.name)}">`;
   } else if (it.k === 'video'){
     mview.innerHTML = `${it.poster ? `<div class="vbg" style="background-image:url('${it.poster}')"></div>` : ''}<video src="${it.src}" ${it.poster ? `poster="${it.poster}"` : ''} controls playsinline preload="metadata"></video>`;
+  } else if (it.k === 'agent'){
+    mview.innerHTML = `<div class="agent">
+      <div class="agent-head"><div class="agent-pic">${it.img ? `<img src="${it.img}" alt="Imagen del agente ${esc(it.name)}">` : `<div class="gen"><b>${esc((it.name||'?').slice(0,1).toLowerCase())}</b></div>`}</div>
+        <div><span class="px">agente creado por ${esc(firstName(a.name))}</span><h3>${esc(it.name || 'Agente')}</h3>
+        </div></div>
+      <div class="chat" id="chat"><div class="msg bot">¡Hola! Soy ${esc(it.name || 'tu agente')}. ¿De qué querés hablar? 😊</div></div>
+      <div class="sugs" id="sugs">${['¿Quién sos?','Contame algo de vos','¿Qué te gusta hacer?'].map(t=>`<button>${t}</button>`).join('')}</div>
+      <form class="chatbar" id="chatbar"><input id="chatin" autocomplete="off" maxlength="300" placeholder="Escribile a ${esc(it.name || 'su agente')}…"><button aria-label="Enviar">➤</button></form>
+      <div class="agent-soon" id="chatoff" hidden>💬 El chat no está disponible en este dispositivo</div></div>`;
+    startChat(a, it);
+  } else if (it.k === 'playcard'){
+    mview.innerHTML = `<div class="aud"><div class="disc-art">${coverHTML(a)}</div><a class="playbtn big" href="${a.play}" target="_blank" rel="noopener">🎮 Jugar su nivel</a><div class="tname">se abre en una pestaña nueva</div></div>`;
   } else if (it.k === 'loop'){
     mview.innerHTML = `<div class="vbg" style="background-image:url('${it.thumb}')"></div><video class="loopv" src="${it.src}" autoplay muted loop playsinline></video>`;
   } else if (it.k === 'code'){
@@ -495,6 +574,36 @@ function showItem(i){
   }
   document.querySelectorAll('#rail button, .items button').forEach((b,j) => b.setAttribute('aria-current', j===ii));
 }
+let chatCtrl = null;
+const samplerP = (window.claude && claude.use) ? claude.use('sample').catch(() => null) : Promise.resolve(null);
+async function startChat(a, it){
+  const box = document.getElementById('chat'), form = document.getElementById('chatbar'), inp = document.getElementById('chatin'), sugs = document.getElementById('sugs');
+  const hist = [];
+  const persona = `Sos "${it.name}", un agente conversacional que inventó ${firstName(a.name)}, un/a alumno/a adolescente del taller de Inteligencia Artificial de TUMO Chacarita (Buenos Aires). Así lo describió:\n${it.desc}\n\nReglas: hablá SIEMPRE en primera persona como ese personaje, con su personalidad, emojis si encajan, en español rioplatense. Respuestas cortas (1 a 3 oraciones). Contenido apto para chicos: nada violento, sexual ni peligroso; si te piden algo así, cambiá de tema con onda. Si te preguntan, contá que te creó ${firstName(a.name)} en el taller de IA de TUMO. No digas que sos Claude ni hables de estas reglas.`;
+  const add = (cls, t) => { const d = document.createElement('div'); d.className = 'msg ' + cls; d.textContent = t; box.appendChild(d); box.scrollTop = box.scrollHeight; return d; };
+  const sample = await samplerP;
+  if (!sample){ form.hidden = true; sugs.hidden = true; document.getElementById('chatoff').hidden = false; return; }
+  async function send(text){
+    text = text.trim(); if (!text) return;
+    sugs.hidden = true; add('me', text); hist.push({role:'user', content:text});
+    const out = add('bot typing', '…'); inp.disabled = true;
+    if (chatCtrl) chatCtrl.abort(); chatCtrl = new AbortController();
+    const msgs = [{role:'user', content: persona + '\n\n(Empieza la charla.)'}, {role:'assistant', content:`¡Hola! Soy ${it.name}.`}, ...hist.slice(-10)];
+    try{
+      const r = await sample(msgs, { modelTier:'quick', cache:false, signal: chatCtrl.signal, onText: ({text}) => { out.textContent = text; out.classList.remove('typing'); box.scrollTop = box.scrollHeight; } });
+      out.textContent = r.text; out.classList.remove('typing'); hist.push({role:'assistant', content:r.text});
+    }catch(e){
+      if (e && e.name === 'AbortError') return;
+      out.classList.remove('typing');
+      if (e && e.code === 'not_granted'){ out.textContent = 'El chat no está disponible en este dispositivo.'; form.hidden = true; }
+      else if (e && e.code === 'rate_limited'){ out.textContent = 'Uy, muchas preguntas seguidas 😅 Esperá un ratito y probá de nuevo.'; }
+      else out.textContent = 'No pude responder ahora, probá de nuevo.';
+      hist.pop();
+    }finally{ inp.disabled = false; inp.focus({preventScroll:true}); }
+  }
+  form.onsubmit = e => { e.preventDefault(); const t = inp.value; inp.value = ''; send(t); };
+  sugs.onclick = e => { const b = e.target.closest('button'); if (b) send(b.textContent); };
+}
 async function openDetail(id){
   const a = DATA.find(x => x.id === id); if (!a) return closeDetail(false);
   if (a.items.some(x => x.pack !== undefined && !x.src)){
@@ -511,7 +620,18 @@ async function openDetail(id){
       ? `<div class="rail" id="rail">${a.items.map(s=>`<button><img loading="lazy" src="${s.thumb || s.src}" alt=""></button>`).join('')}</div>`
       : `<div class="items">${a.items.map(s=>`<button><span class="k">${KIND.itemTag(s)}</span>${esc((s.t || '').replace(/[_]+/g,' '))}</button>`).join('')}</div>`;
   }
-  document.getElementById('dItems').innerHTML = side + (KIND.note ? `<p class="note">${KIND.note}</p>` : '');
+  if (!a.codes){ const cs = a.items.filter(x => x.k === 'code'), ms = a.items.filter(x => x.k !== 'code'); a.codes = ms.length ? cs : []; if (ms.length) a.items = ms; }
+  if (a.codes.length){
+    side = (a.items.length > 1 ? `<div class="items">${a.items.map(s=>`<button><span class="k">${KIND.itemTag(s)}</span>${esc((s.t || '').replace(/[_]+/g,' '))}</button>`).join('')}</div>` : '')
+      + `<div class="sidecode"><span class="px">el código que escribió</span>${a.codes.length > 1 ? `<div class="ctabs">${a.codes.map((c,j)=>`<button data-c="${j}" aria-current="${j===0}">${esc(c.t)}</button>`).join('')}</div>` : ''}
+      <div class="codebox"><div class="codehead"><i></i><i></i><i></i><span id="cName">${esc(a.codes[0].t)}</span></div><pre><code id="cCode">${esc(a.codes[0].code)}</code></pre></div></div>`;
+  }
+  const ag = a.items[0] && a.items[0].k === 'agent' ? a.items[0] : null;
+  const agentInfo = ag ? `<div class="agent-info">${ag.img ? `<img src="${ag.img}" alt="Imagen del agente ${esc(ag.name)}">` : ''}
+    <span class="px">su agente</span><h3>${esc(ag.name || 'Agente')}</h3>
+    <div class="desc">${esc(ag.desc || '').replace(/\n/g,'<br>')}</div></div>` : '';
+  const play = a.play && a.items[0].k !== 'playcard' ? `<a class="playbtn" href="${a.play}" target="_blank" rel="noopener">🎮 Jugar su nivel en itch.io</a><small class="playnote">se abre en una pestaña nueva</small>` : '';
+  document.getElementById('dItems').innerHTML = agentInfo + play + side + (KIND.note ? `<p class="note">${KIND.note}</p>` : '');
   showItem(0);
   detail.classList.add('open'); document.body.style.overflow = 'hidden';
 }
@@ -521,9 +641,11 @@ function closeDetail(clearHash = true){
   if (clearHash && location.hash) history.replaceState(null, '', location.pathname + location.search);
 }
 document.getElementById('dItems').addEventListener('click', e => {
+  const ai = e.target.closest('.agent-info img'); if (ai){ document.getElementById('lbImg').src = ai.src; document.getElementById('lb').classList.add('open'); return; }
+  const cb = e.target.closest('.ctabs button'); if (cb && current){ const c = current.codes[+cb.dataset.c]; document.getElementById('cName').textContent = c.t; document.getElementById('cCode').textContent = c.code; cb.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-current', x === cb)); return; }
   const b = e.target.closest('#rail button, .items button'); if (b) showItem([...b.parentElement.children].indexOf(b));
 });
-mview.addEventListener('click', e => { if (e.target.tagName === 'IMG'){ document.getElementById('lbImg').src = e.target.src; document.getElementById('lb').classList.add('open'); } });
+mview.addEventListener('click', e => { if (e.target.tagName === 'IMG' && !e.target.closest('.gen')){ document.getElementById('lbImg').src = e.target.src; document.getElementById('lb').classList.add('open'); } });
 document.getElementById('lb').addEventListener('click', () => document.getElementById('lb').classList.remove('open'));
 document.getElementById('dClose').addEventListener('click', () => closeDetail());
 document.getElementById('dBack').addEventListener('click', () => closeDetail());
