@@ -620,7 +620,7 @@ async function openDetail(id){
   const agentInfo = ag ? `<div class="agent-info">${ag.img ? `<img src="${ag.img}" alt="Imagen del agente ${esc(ag.name)}">` : ''}
     <span class="px">su agente</span><h3>${esc(ag.name || 'Agente')}</h3>
     <div class="desc">${esc(ag.desc || '').replace(/\n/g,'<br>')}</div></div>` : '';
-  const play = a.play && a.items[0].k !== 'playcard' ? `<a class="playbtn" href="${a.play}" target="_blank" rel="noopener">🎮 Jugar su nivel en itch.io</a><small class="playnote">se abre en una pestaña nueva</small>` : '';
+  const play = a.play && a.items[0].k !== 'playcard' ? `<a class="playbtn" href="${a.play}" target="_blank" rel="noopener">🎮 Jugar su nivel en itch.io</a><small class="playnote">se abre la página de su grupo en itch.io: tocá “Run game” y elegí su nombre</small>` : '';
   document.getElementById('dItems').innerHTML = agentInfo + play + side + (KIND.note ? `<p class="note">${KIND.note}</p>` : '');
   showItem(0);
   detail.classList.add('open'); document.body.style.overflow = 'hidden';
