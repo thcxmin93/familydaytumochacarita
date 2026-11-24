@@ -40,7 +40,3 @@ Cada disciplina tiene:
 ## Grupos
 
 En los datos los grupos se guardan con el primer horario (por ejemplo `Lunes 08:30`). Las páginas los muestran con los dos días ("Lun y Jue 8:30", "Mar y Jue 16:00", etc.); esa traducción está en la constante `GL` dentro de cada `index.html`.
-
-## Contacto
-
-Coordina: Ignacio Mendoza (Workshop Leader, TUMO Chacarita).
