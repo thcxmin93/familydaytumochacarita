@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Albert+Sans:wght@400;500;600;700&family=Silkscreen&family=Gochi+Hand&display=swap">
 <style>
 :root{
-  --bg:#f4f8f1;--ink:#11251a;--muted:#56695b;--green:#23964f;--green-2:#136238;
+  --bg:#eef5ec;--ink:#14261a;--muted:#4b5f4e;--green:#5EB656;--green-2:#2C4C29;
   --f-display:"Bricolage Grotesque",system-ui,sans-serif;--f-body:"Albert Sans",system-ui,sans-serif;
   --f-pixel:"Silkscreen","Courier New",monospace;--f-hand:"Gochi Hand","Comic Sans MS",cursive;
   --gut:max(16px,4vw);
@@ -20,7 +20,7 @@ body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--f-body);-webk
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:3px solid var(--green);outline-offset:4px;border-radius:8px}
 
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px var(--gut);background:#123d24;color:#fff}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px var(--gut);background:#2C4C29;color:#fff;border-bottom:1px solid rgba(94,182,86,.35)}
 .brand{display:flex;align-items:center;gap:12px}
 .brand img{height:34px;width:auto}
 .brand i{width:1px;height:34px;background:rgba(255,255,255,.35)}
@@ -28,11 +28,14 @@ a{color:inherit;text-decoration:none}
 .brand small{display:block;font-size:12px;color:rgba(255,255,255,.75)}
 .tb-right{font-size:13px;color:rgba(255,255,255,.75)}
 
-.hero{padding:clamp(40px,6vw,84px) var(--gut) 28px;max-width:1400px;margin:0 auto;width:100%}
+.hero{padding:clamp(40px,6vw,84px) var(--gut) clamp(40px,5vw,64px);max-width:1400px;margin:0 auto 22px;width:100%;color:#fff;background:#2C4C29;box-shadow:0 0 0 100vmax #2C4C29;clip-path:inset(0 -100vmax);position:relative}
+.hero::after{content:"";position:absolute;left:-100vmax;right:-100vmax;bottom:0;height:8px;background:#5EB656}
+footer span{color:rgba(255,255,255,.8)}
+html,body{overflow-x:clip}
 .px{font-family:var(--f-pixel);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
 .hero h1{font-family:var(--f-display);font-weight:800;font-size:clamp(46px,7vw,112px);line-height:.92;letter-spacing:-.03em;margin:14px 0 4px;text-wrap:balance}
-.hero .where{font-family:var(--f-hand);font-size:clamp(24px,2.4vw,36px);color:var(--green-2);transform:rotate(-2deg);display:inline-block;margin:4px 0 14px}
-.hero p{max-width:620px;color:var(--muted);font-size:18px}
+.hero .where{font-family:var(--f-hand);font-size:clamp(24px,2.4vw,36px);color:var(--green);transform:rotate(-2deg);display:inline-block;margin:4px 0 14px}
+.hero p{max-width:620px;color:rgba(255,255,255,.82);font-size:18px}
 
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,26px);padding:18px var(--gut) 70px;max-width:1400px;margin:0 auto;width:100%}
 .disc{--c:#333;position:relative;display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:#fff;
@@ -52,9 +55,9 @@ a{color:inherit;text-decoration:none}
 .disc .tag{position:absolute;z-index:2;left:12px;top:12px;font-family:var(--f-pixel);font-size:10px;padding:4px 8px;border-radius:3px;background:#fff;color:var(--ink);transform:rotate(-3deg);box-shadow:2px 2px 0 rgba(0,0,0,.25)}
 .disc.ai .art{background:linear-gradient(135deg,#3CF7F5,#0478FF 50%,#FF8FFF)}
 
-footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:28px var(--gut);border-top:1px solid #d2dfcc;color:var(--muted);font-size:14px}
-footer b{font-family:var(--f-display);font-weight:800;color:var(--ink);font-size:20px}
-footer img{height:28px;filter:brightness(0) saturate(100%) invert(18%) sepia(30%) saturate(900%) hue-rotate(95deg)}
+footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:28px var(--gut);border-top:1px solid #cfe3ca;background:#2C4C29;color:rgba(255,255,255,.8);font-size:14px}
+footer b{font-family:var(--f-display);font-weight:800;color:#fff;font-size:20px}
+footer img{height:28px}
 
 @media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){
